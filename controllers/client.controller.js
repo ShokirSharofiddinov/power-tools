@@ -1,4 +1,5 @@
 const Client = require("../models/client");
+const Owner = require("../models/owner");
 
 const addClient = async (ctx) => {
   try {
@@ -20,6 +21,15 @@ const getClient = async (ctx) => {
 
 const getClients = async (ctx) => {
   try {
+    try {
+      const client = await Client.findAll({ include: Owner });
+      ctx.status = 200;
+      ctx.body = client;
+    } catch (error) {
+      console.log(error);
+      ctx.status = 500;
+      ctx.body = "Serverda xatolik";
+    }
   } catch (error) {}
 };
 

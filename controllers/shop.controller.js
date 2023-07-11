@@ -10,7 +10,7 @@ const addShop = async (ctx) => {
       district_id,
       adress,
       location,
-      ownerId
+      ownerId,
     } = ctx.request.body;
     const newShop = await Shop.create({
       shop_name,
@@ -19,7 +19,7 @@ const addShop = async (ctx) => {
       district_id,
       adress,
       location,
-      ownerId
+      ownerId,
     });
     ctx.status = 201;
     ctx.body = newShop;
@@ -31,11 +31,11 @@ const addShop = async (ctx) => {
 };
 
 const getShop = async (ctx) => {
- try {
+  try {
   } catch (error) {}
 };
 const getShops = async (ctx) => {
-   try {
+  try {
     const shop = await Shop.findAll({ include: Owner });
     ctx.status = 200;
     ctx.body = shop;

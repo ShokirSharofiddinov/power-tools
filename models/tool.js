@@ -1,6 +1,8 @@
 const sequelize = require("../config/db");
 
 const { DataTypes } = require("sequelize");
+const ShopTool = require("./shop_tool");
+const Shop = require("./shop");
 
 const Tool = sequelize.define(
   "tool",
@@ -25,5 +27,8 @@ const Tool = sequelize.define(
     timestamps: false,
   }
 );
+
+ShopTool.belongsTo(Tool);
+Tool.hasMany(ShopTool);
 
 module.exports = Tool;

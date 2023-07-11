@@ -1,4 +1,6 @@
+const Client = require("../models/client");
 const Order = require("../models/order");
+const shop_tool = require("../models/shop_tool");
 
 const addOrder = async (ctx) => {
   try {
@@ -27,7 +29,14 @@ const getOrder = async (ctx) => {
 
 const getOrders = async (ctx) => {
   try {
-  } catch (error) {}
+    const order = await Order.findAll({ include: Client }, {include: shop_tool});
+    ctx.status = 200;
+    ctx.body = order;
+  } catch (error) {
+    console.log(error);
+    ctx.status = 500;
+    ctx.body = "Serverda xatolik";
+  }
 };
 
 module.exports = {
