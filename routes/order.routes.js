@@ -4,7 +4,7 @@ const {
   addOrder,
   getOrder,
   getOrders
-} = require("../controllers/client.controller");
+} = require("../controllers/order.controller");
 
 const router = Router();
 

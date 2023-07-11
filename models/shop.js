@@ -20,15 +20,18 @@ const Shop = sequelize.define(
       type: DataTypes.STRING,
       unique: true
     },
-    district_id: {
-      type: DataTypes.INTEGER
-    },
+    // district_id: {
+    //   type: DataTypes.INTEGER
+    // },
     adress:{
       type: DataTypes.STRING
     },
     location:{
       type: DataTypes.STRING
-    }
+    },
+    // owner_id: {
+    //   type: DataTypes.BIGINT
+    // }
   },
   {
     freezeTableName: true,

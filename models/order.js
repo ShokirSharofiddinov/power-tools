@@ -19,8 +19,7 @@ const Order = sequelize.define(
       allowNull: false
     },
     order_date: {
-      type: DataTypes.DATE,
-      default: now()
+      type: DataTypes.DATE
     },
     period: {
       type: DataTypes.DATE,

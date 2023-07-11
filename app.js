@@ -5,7 +5,6 @@ const bodyParser = require("koa-bodyparser");
 const serve = require("koa-static");
 const sequelize = require("./config/db");
 const router = require("./routes/index.routes");
-const Client = require("./models/client");
 
 const PORT = config.get("port");
 
@@ -20,7 +19,7 @@ app.use(router());
 const start = async () => {
   try {
     await sequelize.authenticate();
-    await Client.sync({ alter: true });
+    await sequelize.sync({ alter: true });
     console.log("Connection has been established successfully.");
     app.listen(PORT, () => {
       console.log(`Server ${PORT}-portda ishga tushdi`);
