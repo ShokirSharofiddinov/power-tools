@@ -12,18 +12,23 @@ const Order = sequelize.define(
     },
     client_id: {
       type: DataTypes.BIGINT,
+      allowNull: false
     },
     shop_tool_id: {
       type: DataTypes.BIGINT,
+      allowNull: false
     },
     order_date: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
+      default: now()
     },
     period: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
+      allowNull: false
     },
     total_price: {
-      type: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL,
+      allowNull: false
     }
   },
   {
