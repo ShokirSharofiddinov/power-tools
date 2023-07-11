@@ -1,3 +1,4 @@
+const Owner = require("../models/owner");
 const Shop = require("../models/shop");
 
 const addShop = async (ctx) => {
@@ -30,13 +31,19 @@ const addShop = async (ctx) => {
 };
 
 const getShop = async (ctx) => {
-  try {
+ try {
   } catch (error) {}
 };
-
 const getShops = async (ctx) => {
-  try {
-  } catch (error) {}
+   try {
+    const shop = await Shop.findAll({ include: Owner });
+    ctx.status = 200;
+    ctx.body = shop;
+  } catch (error) {
+    console.log(error);
+    ctx.status = 500;
+    ctx.body = "Serverda xatolik";
+  }
 };
 
 module.exports = {
